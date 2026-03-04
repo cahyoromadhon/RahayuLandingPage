@@ -129,7 +129,11 @@ btnKirimPesanan.onclick = () => {
   }
 
   const productName = document.getElementById('modalTitle').innerText;
-  const productPrice = document.getElementById('modalPrice').innerText;
+  
+  const priceContainer = document.getElementById('modalPrice');
+  const discountedPrice = priceContainer.querySelector('.price-discounted');
+  const productPrice = discountedPrice ? discountedPrice.innerText : priceContainer.innerText.trim();
+
   const nama = document.getElementById('buyerName').value;
   const hp = document.getElementById('buyerPhone').value;
   const alamat = document.getElementById('buyerAddress').value;
