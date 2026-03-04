@@ -110,8 +110,9 @@ btnLanjutPembayaran.onclick = () => {
   const nama = document.getElementById('buyerName').value.trim();
   const hp = document.getElementById('buyerPhone').value.trim();
   const alamat = document.getElementById('buyerAddress').value.trim();
+  const kota = document.getElementById('buyerCity').value.trim();
 
-  if (!nama || !hp || !alamat) {
+  if (!nama || !hp || !alamat || !kota) {
     alert("Mohon lengkapi semua data pengiriman!");
     return;
   }
@@ -132,10 +133,11 @@ btnKirimPesanan.onclick = () => {
   const nama = document.getElementById('buyerName').value;
   const hp = document.getElementById('buyerPhone').value;
   const alamat = document.getElementById('buyerAddress').value;
+  const kota = document.getElementById('buyerCity').value;
   const payment = selectedPayment.value;
 
   const waNumber = "6283847842429";
-  const message = `Halo Admin Rahayu ID, saya ingin memesan produk:\n\n*Produk:* ${productName}\n*Harga:* ${productPrice}\n\n*Data Pembeli:*\nNama: ${nama}\nNo. HP: ${hp}\nAlamat: ${alamat}\n\n*Metode Pembayaran:* ${payment}\n\nMohon informasi selanjutnya ya. Terima kasih!`;
+  const message = `Halo Admin Rahayu Shop, saya ingin memesan produk:\n\n*Produk:* ${productName}\n*Harga:* ${productPrice}\n\n*Data Pembeli:*\nNama: ${nama}\nNo. HP: ${hp}\nAlamat: ${alamat}\nKota: ${kota}\n\n*Metode Pembayaran:* ${payment}\n\nMohon informasi selanjutnya ya. Terima kasih!`;
   
   window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
   paymentModal.style.display = "none";
