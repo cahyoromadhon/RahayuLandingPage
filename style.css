@@ -27,6 +27,31 @@ body{
     margin-bottom:1.5rem;
 }
 
+/* PROMO */
+.promo-container {
+    margin-top: 15px;
+}
+.promo-input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+.promo-btn {
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 5px;
+}
+#promoMessage {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
 /* SOCIAL ICONS */
 .hero-social {
     display: flex;
@@ -60,6 +85,28 @@ body{
     font-weight:700;
     font-size:1rem;
     color:#1b5e20;
+}
+
+/* PRICE DESAIN */
+.price-original {
+    text-decoration: line-through;
+    color: #9ca3af;
+    font-size: 0.75rem;
+    margin-right: 5px;
+    font-weight: 400;
+}
+.discount-label {
+    background-color: #ff8a00;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-left: 5px;
+    font-weight: 600;
+}
+.price-discounted {
+    color: #ee4d2d;
+    font-weight: 700;
 }
 
 /* GRID */

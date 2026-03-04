@@ -21,11 +21,13 @@ document.querySelectorAll(".card").forEach(card => {
 
         const img = this.querySelector("img").src;
         const title = this.querySelector("h3").innerText;
-        const price = this.querySelector(".price").innerText;
+        // Gunakan innerHTML agar tag HTML desain diskon ikut tersalin
+        const priceHTML = this.querySelector(".price").innerHTML; 
 
         modalImg.src = img;
         modalTitle.innerText = title;
-        modalPrice.innerText = price;
+        // Gunakan innerHTML agar desain dirender dengan benar di dalam modal
+        modalPrice.innerHTML = priceHTML; 
         modalDesc.innerText = productDescriptions[title] || "Deskripsi produk belum tersedia.";
 
         modal.style.display = "flex";
@@ -39,3 +41,43 @@ window.onclick = (e) => {
         modal.style.display = "none";
     }
 };
+
+let promoApplied = false;
+
+document.getElementById('promoBtn').addEventListener('click', function() {
+    if (promoApplied) return;
+    
+    const code = document.getElementById('promoCode').value;
+    const message = document.getElementById('promoMessage');
+    const validCode = 'DISKON20';
+    
+    if (code.toUpperCase() === validCode) {
+        const prices = document.querySelectorAll('.price');
+        
+        prices.forEach(priceEl => {
+            let priceText = priceEl.innerText.replace(/[^0-9]/g, '');
+            if (priceText) {
+                let originalPrice = parseInt(priceText);
+                let newPrice = originalPrice * 0.8;
+                
+                let originalFormatted = 'Rp ' + originalPrice.toLocaleString('id-ID');
+                let newFormatted = 'Rp ' + newPrice.toLocaleString('id-ID');
+                
+                priceEl.innerHTML = `
+                    <div><span class="price-discounted">${newFormatted}</span></div>
+                    <div>
+                        <span class="price-original">${originalFormatted}</span>
+                        <span class="discount-label">20%</span>
+                    </div>
+                `;
+            }
+        });
+        
+        message.style.color = 'green';
+        message.innerText = 'Promo berhasil diterapkan!';
+        promoApplied = true;
+    } else {
+        message.style.color = 'red';
+        message.innerText = 'Kode promo tidak valid.';
+    }
+});
