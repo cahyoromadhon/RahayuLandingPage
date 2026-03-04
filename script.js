@@ -24,6 +24,28 @@ const productDescriptions = {
     "Lip Cream": "Lip cream tahan lama dengan warna natural dan formula ringan."
 };
 
+const welcomePromoModal = document.getElementById('welcomePromoModal');
+const promoInput = document.getElementById('promoCode');
+
+window.onload = () => {
+  welcomePromoModal.style.display = "flex";
+};
+
+document.getElementById('closeWelcomePromo').onclick = () => {
+  welcomePromoModal.style.display = "none";
+};
+
+welcomePromoModal.addEventListener('click', (e) => {
+  if (e.target === welcomePromoModal) {
+    welcomePromoModal.style.display = "none";
+  }
+});
+
+document.getElementById('welcomePromoImg').onclick = () => {
+  promoInput.value = "DISKON20";
+  welcomePromoModal.style.display = "none";
+};
+
 document.querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", function(e) {
         if(e.target.classList.contains("btn")) return;
