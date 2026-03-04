@@ -1,6 +1,4 @@
 const products = document.querySelectorAll('#other-products .card');
-const pagination = document.getElementById('pagination');
-const perPage = 4;
 const modal = document.getElementById("productModal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
@@ -41,29 +39,3 @@ window.onclick = (e) => {
         modal.style.display = "none";
     }
 };
-
-function showPage(page){
-    const start = (page-1)*perPage;
-    const end = start+perPage;
-
-    products.forEach((item,i)=>{
-        item.style.display=(i>=start && i<end)?"block":"none";
-    });
-
-    document.querySelectorAll('.pagination button').forEach((btn,i)=>{
-        btn.classList.toggle('active',i+1===page);
-    });
-}
-
-function setupPagination(){
-    const total=Math.ceil(products.length/perPage);
-    for(let i=1;i<=total;i++){
-        const btn=document.createElement('button');
-        btn.innerText=i;
-        btn.onclick=()=>showPage(i);
-        pagination.appendChild(btn);
-    }
-}
-
-setupPagination();
-showPage(1);

@@ -27,18 +27,6 @@ body{
     margin-bottom:1.5rem;
 }
 
-.cta{
-    display:inline-block;
-    background:#4CAF50;
-    color:white;
-    padding:0.8rem 1.6rem;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:0.85rem;
-    box-shadow:0 8px 20px rgba(76,175,80,0.25);
-}
-
 /* SOCIAL ICONS */
 .hero-social {
     display: flex;
@@ -125,29 +113,6 @@ body{
     border-radius:6px;
     font-size:0.7rem;
     text-decoration:none;
-}
-
-/* PAGINATION */
-.pagination{
-    display:flex;
-    justify-content:center;
-    gap:0.5rem;
-    margin-top:1.5rem;
-}
-
-.pagination button{
-    border:none;
-    background:#e8f5e9;
-    padding:0.4rem 0.8rem;
-    border-radius:6px;
-    font-weight:600;
-    color:#2e7d32;
-    cursor:pointer;
-}
-
-.pagination button.active{
-    background:#4CAF50;
-    color:white;
 }
 
 /* FLOAT WA */
