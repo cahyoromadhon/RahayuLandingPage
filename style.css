@@ -160,6 +160,8 @@ body{
     border-radius:6px;
     font-size:0.7rem;
     text-decoration:none;
+    border: none;
+    outline: none;
 }
 
 /* FLOAT WA */
@@ -294,6 +296,37 @@ body{
     cursor: pointer;
     font-weight: bold;
 }
+
+.promo-banner {
+  background-color: #ff9950;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 40px 10px 20px;
+  font-size: 14px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Inter', sans-serif;
+}
+.close-banner {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal-form-group { margin-bottom: 15px; text-align: left; }
+.modal-form-group input, .modal-form-group textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+.payment-options { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+.payment-option { display: flex; align-items: center; gap: 15px; padding: 12px; border: 1px solid #e0e0e0; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+.payment-option input { cursor: pointer; }
+.payment-option img { max-height: 24px; object-fit: contain; }
+.payment-option span { font-weight: 500; font-size: 14px; }
+#btnPesanSekarang { display: inline-block; width: 50%; text-align: center; cursor: pointer; border: none; }
 
 @keyframes fadeIn {
     from {opacity:0; transform:scale(0.95);}

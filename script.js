@@ -5,6 +5,15 @@ const modalTitle = document.getElementById("modalTitle");
 const modalPrice = document.getElementById("modalPrice");
 const modalDesc = document.getElementById("modalDesc");
 const closeModal = document.getElementById("closeModal");
+// Referensi Elemen Modal
+const productModal = document.getElementById('productModal');
+const checkoutModal = document.getElementById('checkoutModal');
+const paymentModal = document.getElementById('paymentModal');
+
+// Tombol Navigasi
+const btnPesanSekarang = document.getElementById('btnPesanSekarang');
+const btnLanjutPembayaran = document.getElementById('btnLanjutPembayaran');
+const btnKirimPesanan = document.getElementById('btnKirimPesanan');
 
 const productDescriptions = {
     "Pembersih Mawar": "Membersihkan wajah secara lembut dengan ekstrak mawar alami, cocok untuk semua jenis kulit.",
@@ -81,3 +90,53 @@ document.getElementById('promoBtn').addEventListener('click', function() {
         message.innerText = 'Kode promo tidak valid.';
     }
 });
+
+// Logika Tutup Modal
+document.getElementById('closeModal').onclick = () => productModal.style.display = "none";
+document.getElementById('closeCheckout').onclick = () => checkoutModal.style.display = "none";
+document.getElementById('closePayment').onclick = () => paymentModal.style.display = "none";
+document.getElementById('closeBanner').onclick = () => {
+  document.getElementById('promoBanner').style.display = 'none';
+};
+
+// Trigger Checkout ke Form Data
+btnPesanSekarang.onclick = () => {
+  productModal.style.display = "none";
+  checkoutModal.style.display = "flex"; // Sesuaikan dengan CSS display modal kamu
+};
+
+// Trigger Form ke Pilihan Pembayaran
+btnLanjutPembayaran.onclick = () => {
+  const nama = document.getElementById('buyerName').value.trim();
+  const hp = document.getElementById('buyerPhone').value.trim();
+  const alamat = document.getElementById('buyerAddress').value.trim();
+
+  if (!nama || !hp || !alamat) {
+    alert("Mohon lengkapi semua data pengiriman!");
+    return;
+  }
+  checkoutModal.style.display = "none";
+  paymentModal.style.display = "flex";
+};
+
+// Trigger Pilihan Pembayaran ke WhatsApp
+btnKirimPesanan.onclick = () => {
+  const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+  if (!selectedPayment) {
+    alert("Mohon pilih metode pembayaran!");
+    return;
+  }
+
+  const productName = document.getElementById('modalTitle').innerText;
+  const productPrice = document.getElementById('modalPrice').innerText;
+  const nama = document.getElementById('buyerName').value;
+  const hp = document.getElementById('buyerPhone').value;
+  const alamat = document.getElementById('buyerAddress').value;
+  const payment = selectedPayment.value;
+
+  const waNumber = "6283847842429";
+  const message = `Halo Admin Rahayu ID, saya ingin memesan produk:\n\n*Produk:* ${productName}\n*Harga:* ${productPrice}\n\n*Data Pembeli:*\nNama: ${nama}\nNo. HP: ${hp}\nAlamat: ${alamat}\n\n*Metode Pembayaran:* ${payment}\n\nMohon informasi selanjutnya ya. Terima kasih!`;
+  
+  window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  paymentModal.style.display = "none";
+};
