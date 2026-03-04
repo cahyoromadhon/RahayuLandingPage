@@ -86,6 +86,8 @@ body{
     border-radius:14px;
     overflow:hidden;
     box-shadow:0 8px 25px rgba(0,0,0,0.05);
+    display:flex;
+    flex-direction:column;
 }
 
 .card img{
@@ -96,7 +98,10 @@ body{
 
 .card-content{
     padding:0.9rem;
-    text-align:center;
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
 }
 
 .card h3{
@@ -107,8 +112,9 @@ body{
 .price{
     color:#4CAF50;
     font-weight:700;
-    margin-bottom:0.7rem;
+    margin-bottom:0;
     font-size:0.85rem;
+    margin-top:auto;
 }
 
 .btn{
