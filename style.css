@@ -345,6 +345,22 @@ body{
 .payment-option span { font-weight: 500; font-size: 14px; }
 #btnPesanSekarang { display: inline-block; width: 50%; text-align: center; cursor: pointer; border: none; }
 
+.faq-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #166534; /* Warna hijau senada dengan tema */
+}
+.faq-container { max-width: 800px; margin: 0 auto 0px auto; padding: 0 20px; }
+.faq-item { border-bottom: 1px solid #e5e7eb; }
+.faq-question { width: 100%; background: none; border: none; text-align: left; padding: 12px 0; font-size: 15px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #374151; }
+.faq-question::after { content: '+'; font-size: 20px; transition: transform 0.3s; }
+.faq-item.active .faq-question::after { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #4b5563; font-size: 14px; line-height: 1.6; }
+.faq-answer p { padding-bottom: 18px; margin: 0; }
+
 @keyframes fadeIn {
     from {opacity:0; transform:scale(0.95);}
     to {opacity:1; transform:scale(1);}

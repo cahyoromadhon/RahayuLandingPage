@@ -142,6 +142,26 @@ btnLanjutPembayaran.onclick = () => {
   paymentModal.style.display = "flex";
 };
 
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    
+    faqItems.forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+    
+    if (!isActive) {
+      item.classList.add('active');
+      const answer = item.querySelector('.faq-answer');
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
+
 // Trigger Pilihan Pembayaran ke WhatsApp
 btnKirimPesanan.onclick = () => {
   const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
