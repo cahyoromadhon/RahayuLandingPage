@@ -16,8 +16,8 @@ const btnLanjutPembayaran = document.getElementById('btnLanjutPembayaran');
 const btnKirimPesanan = document.getElementById('btnKirimPesanan');
 
 const productDescriptions = {
-    "Pembersih Mawar": "Membersihkan wajah secara lembut dengan ekstrak mawar alami, cocok untuk semua jenis kulit.",
-    "Penyegar Mawar": "Menyegarkan dan membantu mengecilkan pori-pori dengan aroma mawar alami.",
+    "Sariayu SPF 50 PA+++ Sunscreen Serum 30 ml": "Memberikan perlindungan 5 in 1 terhadap kerusakan karena sinar UVA, IVB, Blue Light, Infrared dan Pollutant. Mengandung bahan hydrating active untuk cepat menyerap dan tidak lengket.",
+    "Sariayu Acne Care Facial Foam 75g": "Facial foam dengan kandungan Centella Asiatica Extract (Ekstrak Pegagan) dan Minyak Kenanga yang dapat membantu membersihkan wajah tanpa membuat kulit kering dan iritasi.",
     "Masker Natural": "Masker berbahan herbal untuk membantu mencerahkan dan menutrisi kulit.",
     "Facial Foam": "Busa lembut yang membersihkan tanpa membuat kulit kering.",
     "Bedak Herbal": "Bedak ringan dengan kandungan herbal alami untuk tampilan natural.",
