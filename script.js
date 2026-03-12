@@ -16,10 +16,10 @@ const btnLanjutPembayaran = document.getElementById('btnLanjutPembayaran');
 const btnKirimPesanan = document.getElementById('btnKirimPesanan');
 
 const productDescriptions = {
-    "Sariayu SPF 50 PA+++ Sunscreen Serum 30 ml": "Memberikan perlindungan 5 in 1 terhadap kerusakan karena sinar UVA, IVB, Blue Light, Infrared dan Pollutant. Mengandung bahan hydrating active untuk cepat menyerap dan tidak lengket.",
+    "Sariayu SPF 50 PA+++ Sunscreen Serum 30ml": "Memberikan perlindungan 5 in 1 terhadap kerusakan karena sinar UVA, IVB, Blue Light, Infrared dan Pollutant. Mengandung bahan hydrating active untuk cepat menyerap dan tidak lengket.",
     "Sariayu Acne Care Facial Foam 75g": "Facial foam dengan kandungan Centella Asiatica Extract (Ekstrak Pegagan) dan Minyak Kenanga yang dapat membantu membersihkan wajah tanpa membuat kulit kering dan iritasi.",
-    "Masker Natural": "Masker berbahan herbal untuk membantu mencerahkan dan menutrisi kulit.",
-    "Facial Foam": "Busa lembut yang membersihkan tanpa membuat kulit kering.",
+    "Sariayu Bright Skin Putih Langsat Face Scrub 75ml": "Facial Scrub dengan tekstur mutiara yang mengandung ekstrak buah Langsat, natural AHA & vitamin C,  dengan  kandungan  Lansium  Extract Complex  dan Pro Vitamin B5.",
+    "Sariayu Hijab Hair Tonic Lotion 180ml": "Membantu menjaga kehitaman dan kekuatan rambut serta mengurangi kerontokan sehingga menjadikan rambut tetap sehat dan indah dengan kandungan Daun Urang Aring, Daun Mangkokan, Lidah Buaya, Mint dan ekstrak jeruk purut.",
     "Bedak Herbal": "Bedak ringan dengan kandungan herbal alami untuk tampilan natural.",
     "Lip Cream": "Lip cream tahan lama dengan warna natural dan formula ringan."
 };
@@ -111,6 +111,33 @@ document.getElementById('promoBtn').addEventListener('click', function() {
         message.style.color = 'red';
         message.innerText = 'Kode promo tidak valid.';
     }
+});
+
+// Filter Produk
+const filterBtns = document.querySelectorAll('.filter-btn');
+const filterCards = document.querySelectorAll('#other-products .card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const filterValue = btn.getAttribute('data-filter');
+    
+    filterCards.forEach(card => {
+      card.classList.add('hide-anim'); // Memicu animasi fade out
+      
+      setTimeout(() => {
+        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          card.style.display = '';
+          // Memberikan jeda sangat singkat sebelum fade in agar browser merendernya
+          setTimeout(() => card.classList.remove('hide-anim'), 20); 
+        } else {
+          card.style.display = 'none';
+        }
+      }, 300); // Waktu tunggu sesuai dengan durasi CSS transition (0.3s)
+    });
+  });
 });
 
 // Logika Tutup Modal

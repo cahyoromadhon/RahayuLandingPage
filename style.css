@@ -137,6 +137,33 @@ body{
     font-weight: 700;
 }
 
+/* Filter */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: -15px auto 30px auto; /* Memberikan jarak atas dan bawah yang lebih longgar */
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 6px 14px; /* Mengecilkan ukuran tombol */
+  border: 1px solid #4caf50; 
+  background: transparent;
+  color: #4caf50;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; /* Mengecilkan teks tombol */
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
 /* GRID */
 .grid{
     display:grid;
@@ -151,6 +178,7 @@ body{
     box-shadow:0 8px 25px rgba(0,0,0,0.05);
     display:flex;
     flex-direction:column;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .card img{
@@ -190,6 +218,12 @@ body{
     text-decoration:none;
     border: none;
     outline: none;
+}
+
+.card.hide-anim {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
 }
 
 /* FLOAT WA */
